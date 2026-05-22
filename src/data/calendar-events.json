@@ -1,0 +1,66 @@
+[
+  {
+    "id": "board-meeting",
+    "title": "Board of Directors Meeting",
+    "time": "1:30 PM - 3:00 PM",
+    "location": "TOTH Main Hall & Zoom",
+    "description": "Monthly business meeting of the Board of Directors. Members and the public are welcome to attend the open session.",
+    "category": "board",
+    "recurrence": {
+      "type": "nthWeekday",
+      "nth": 2,
+      "weekday": 4
+    }
+  },
+  {
+    "id": "exec-meeting",
+    "title": "Executive Committee Meeting",
+    "time": "10:00 AM - 11:30 AM",
+    "location": "Conference Room",
+    "description": "Leadership planning session for reviewing center policies, budgets, and upcoming programs.",
+    "category": "committee",
+    "recurrence": {
+      "type": "nthWeekday",
+      "nth": 1,
+      "weekday": 1
+    }
+  },
+  {
+    "id": "volunteer-training",
+    "title": "Volunteer Orientation & Training",
+    "time": "2:00 PM - 3:30 PM",
+    "location": "TOTH Library & Welcome Desk",
+    "description": "Orientation session for new volunteers. Learn about operations, reception hosting, and community activities.",
+    "category": "volunteer",
+    "recurrence": {
+      "type": "nthWeekday",
+      "nth": 3,
+      "weekday": 3
+    }
+  },
+  {
+    "id": "facilities-meeting",
+    "title": "Facilities & Rental Committee",
+    "time": "11:00 AM - 12:00 PM",
+    "location": "Great Room / Annex",
+    "description": "Reviewing facility maintenance, safety updates, upgrade projects, and rental operations guidelines.",
+    "category": "committee",
+    "recurrence": {
+      "type": "nthWeekday",
+      "nth": 4,
+      "weekday": 2
+    }
+  },
+  {
+    "id": "town-hall",
+    "title": "Center Update Town Hall",
+    "time": "6:30 PM - 8:00 PM",
+    "location": "Main Hall (Great Room)",
+    "description": "Open community meeting to share updates regarding center membership, activities, and operational plans.",
+    "category": "public",
+    "recurrence": {
+      "type": "dayOfMonth",
+      "day": 20
+    }
+  }
+]
