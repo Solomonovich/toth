@@ -1,20 +1,22 @@
 "use client"
 
-import { useState } from "react"
 import { motion } from "framer-motion"
 import { CheckCircle2 } from "lucide-react"
+import { useContactForm } from "@/lib/useContactForm"
 
 export function MembershipForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSuccess, setIsSuccess] = useState(false)
+  const { isSubmitting, isSuccess, error, submit, reset } = useContactForm("membership")
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setIsSubmitting(true)
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    setIsSubmitting(false)
-    setIsSuccess(true)
+    const fd = new FormData(e.currentTarget)
+    await submit({
+      firstName: fd.get("firstName"),
+      lastName: fd.get("lastName"),
+      email: fd.get("email"),
+      phone: fd.get("phone"),
+      company: fd.get("company"), // honeypot
+    })
   }
 
   if (isSuccess) {
@@ -31,8 +33,8 @@ export function MembershipForm() {
         <p className="text-foreground/70">
           We&apos;ve received your membership inquiry. One of our volunteers will contact you shortly to complete your registration.
         </p>
-        <button 
-          onClick={() => setIsSuccess(false)}
+        <button
+          onClick={reset}
           className="mt-6 text-sapphire-400 hover:text-sapphire-300 font-medium transition-colors"
         >
           Submit another inquiry
@@ -43,6 +45,12 @@ export function MembershipForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      {/* Honeypot: hidden from people, tempting to bots. Leave empty. */}
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="company">Company</label>
+        <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
       <div className="space-y-3">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div className="space-y-1">
@@ -96,9 +104,15 @@ export function MembershipForm() {
         </div>
       </div>
 
-      <button 
+      {error && (
+        <p className="text-xs text-center text-red-500" role="alert">
+          {error}
+        </p>
+      )}
+
+      <button
         disabled={isSubmitting}
-        type="submit" 
+        type="submit"
         className="w-full py-2.5 bg-sapphire-600 hover:bg-sapphire-500 disabled:bg-sapphire-600/50 text-white rounded-xl font-semibold transition-all shadow-[0_0_20px_rgba(37,99,235,0.2)] hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] disabled:shadow-none flex items-center justify-center gap-2 text-sm"
       >
         {isSubmitting ? (

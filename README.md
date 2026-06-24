@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Treasure of the Hills — Senior Center Website
 
-## Getting Started
+Marketing and information site for **Treasure of the Hills (TOTH)**, a volunteer-run
+senior center in Cedar Park, TX. Built with Next.js 16 (App Router), React 19,
+Tailwind CSS v4, and Framer Motion.
 
-First, run the development server:
+Highlights:
+
+- Home, **Calendar** (interactive board/committee schedule), and **Rentals** pages
+- Tasteful, scroll-triggered animations that respect `prefers-reduced-motion`
+- Working inquiry forms (membership, rental, newsletter) that email the center
+- Light/dark themes and adjustable font size for accessibility
+- SEO built in: metadata, Open Graph image, sitemap, robots, and LocalBusiness JSON-LD
+
+## Getting started
+
+Requires Node.js 20+.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Other scripts:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build    # production build
+npm run start    # serve the production build
+npm run lint     # eslint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Configuration
 
-## Learn More
+### Editable content — `src/lib/site-config.ts`
 
-To learn more about Next.js, take a look at the following resources:
+Almost everything a non-developer needs to change lives in one file: the center's
+name, address, phone, email, hours, navigation links, activities, membership
+tiers, the map embed, and social links. Edit there and the whole site updates.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Environment variables — `.env.local`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Copy `.env.example` to `.env.local`. **None are required to run the site** — without
+them, form submissions are logged on the server and still show a success message
+(useful for previews). Add them to enable real email delivery:
 
-## Deploy on Vercel
+| Variable | Purpose |
+| --- | --- |
+| `RESEND_API_KEY` | Turns on real email via [Resend](https://resend.com) (free tier available). |
+| `CONTACT_TO_EMAIL` | Inbox that receives inquiries (defaults to the address in `site-config.ts`). |
+| `CONTACT_FROM_EMAIL` | The "from" address; use a [verified Resend domain](https://resend.com/domains). |
+| `NEXT_PUBLIC_SITE_URL` | Production URL for SEO canonical/OG tags and the sitemap. |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+> Prefer a different provider? The single route at `src/app/api/contact/route.ts`
+> is the only place email is sent — swap Resend for Web3Forms, SendGrid, etc. there.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## How the forms work
+
+All forms (membership, rental, footer newsletter) post to **`/api/contact`**, which
+validates the input, blocks bots with a honeypot field, and emails the center.
+Shared logic lives in `src/lib/useContactForm.ts`. Submitters' emails are set as the
+`reply-to`, so staff can reply directly.
+
+## Deployment (Vercel)
+
+1. Push this repository to GitHub.
+2. Import it at [vercel.com/new](https://vercel.com/new) (framework auto-detected).
+3. Add the environment variables above in **Project → Settings → Environment Variables**.
+4. Deploy. Set `NEXT_PUBLIC_SITE_URL` to the final domain so SEO tags are correct.
+
+Any Node host that runs `next build` / `next start` works too.
+
+## Project structure
+
+```
+src/
+├─ app/                 # routes, layout, SEO files (sitemap/robots/manifest/og)
+│  ├─ api/contact/      # email route handler
+│  ├─ calendar/         # board & committee calendar page
+│  └─ rentals/          # facility rentals page
+├─ components/
+│  ├─ forms/            # membership, rental, newsletter forms
+│  ├─ layout/           # navbar, footer
+│  ├─ sections/         # hero
+│  └─ ui/               # cards, gallery, calendar, animation primitives
+├─ data/                # calendar-events.json (recurring events)
+└─ lib/                 # site-config, motion variants, form hook, utils
+```
+
+See [`ROADMAP.md`](./ROADMAP.md) for planned future features.

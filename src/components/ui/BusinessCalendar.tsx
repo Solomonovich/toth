@@ -12,7 +12,7 @@ import rawEvents from '@/data/calendar-events.json';
 const formatSelectedDate = (date: Date): string => {
   try {
     return date.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' });
-  } catch (e) {
+  } catch {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     return `${days[date.getDay()]}, ${months[date.getMonth()]} ${date.getDate()}`;
@@ -22,7 +22,7 @@ const formatSelectedDate = (date: Date): string => {
 const formatEventDate = (date: Date): string => {
   try {
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-  } catch (e) {
+  } catch {
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     return `${months[date.getMonth()]} ${date.getDate()}`;
   }
@@ -136,9 +136,12 @@ export function BusinessCalendar() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [activeCategory, setActiveCategory] = useState<string>('all');
 
-  // Initialize client-side state
+  // Initialize the calendar to "today" only on the client. `new Date()` would
+  // give the server's clock during SSR and cause a hydration mismatch, so we
+  // render a skeleton until this runs. This is an intentional, one-time sync.
   useEffect(() => {
     const today = new Date();
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- client-only init, see above
     setCurrentDate(today);
     setSelectedDate(today);
   }, []);

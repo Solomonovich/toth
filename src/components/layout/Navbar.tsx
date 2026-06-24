@@ -6,15 +6,8 @@ import { cn } from '@/lib/utils';
 import { HeartHandshake } from 'lucide-react';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { usePathname, useRouter } from 'next/navigation';
-
-const NAV_LINKS = [
-  { name: 'About', href: '/#about' },
-  { name: 'Activities', href: '/#activities' },
-  { name: 'Calendar', href: '/calendar' },
-  { name: 'Gallery', href: '/#gallery' },
-  { name: 'Rentals', href: '/rentals' },
-  { name: 'Contact', href: '/#contact' },
-];
+import Link from 'next/link';
+import { navLinks as NAV_LINKS } from '@/lib/site-config';
 
 export function Navbar() {
   const pathname = usePathname();
@@ -32,6 +25,7 @@ export function Navbar() {
   useEffect(() => {
     const savedSize = localStorage.getItem('toth-font-size') as 'normal' | 'large' | 'xlarge';
     if (savedSize && ['normal', 'large', 'xlarge'].includes(savedSize)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time sync of UI state from localStorage after mount
       setFontSize(savedSize);
       document.documentElement.setAttribute('data-font-size', savedSize);
     } else {
@@ -103,7 +97,7 @@ export function Navbar() {
         }}
       >
           {/* Logo */}
-          <a
+          <Link
             href="/"
             onClick={(e) => {
               e.preventDefault();
@@ -124,7 +118,7 @@ export function Navbar() {
               <span className="font-bold text-sm md:text-base leading-none text-foreground tracking-tight">TOTH</span>
               <span className="text-[10px] text-sapphire-400 font-medium hidden sm:block">Senior Center</span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Nav Links */}
           <nav className="hidden md:flex gap-1 items-center bg-foreground/5 p-1 rounded-full border border-foreground/5 overflow-hidden">
@@ -185,13 +179,13 @@ export function Navbar() {
               </button>
             </div>
 
-            <a
+            <Link
               href="/#membership"
               onClick={(e) => handleNavClick(e, '/#membership')}
               className="px-5 py-2 rounded-full bg-sapphire-600 hover:bg-sapphire-500 text-white font-medium text-sm transition-all shadow-[0_0_15px_rgba(37,99,235,0.3)] hover:shadow-[0_0_20px_rgba(37,99,235,0.5)]"
             >
               Join Today
-            </a>
+            </Link>
             <ThemeToggle />
           </div>
 
@@ -241,7 +235,7 @@ export function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.05 }}
               >
-                <a
+                <Link
                   href="/"
                   onClick={(e) => {
                     e.preventDefault();
@@ -256,7 +250,7 @@ export function Navbar() {
                   className="text-3xl font-black uppercase tracking-tight text-foreground/50 active:text-sapphire-500 transition-colors"
                 >
                   Home
-                </a>
+                </Link>
               </motion.div>
 
               {NAV_LINKS.map((link, i) => (
@@ -327,13 +321,13 @@ export function Navbar() {
                 transition={{ delay: 0.5 }}
                 className="mt-4"
               >
-                <a
+                <Link
                   href="/#membership"
                   onClick={(e) => handleNavClick(e, '/#membership')}
                   className="px-12 py-4 bg-sapphire-600 text-white font-bold text-lg rounded-full uppercase tracking-tight active:bg-sapphire-700 transition-all shadow-xl shadow-sapphire-600/20 inline-block"
                 >
                   Join Today
-                </a>
+                </Link>
               </motion.div>
             </nav>
           </motion.div>

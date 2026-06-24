@@ -1,6 +1,7 @@
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { BusinessCalendar } from "@/components/ui/BusinessCalendar";
-import { CalendarDays } from "lucide-react";
+import { CalendarDays, Phone } from "lucide-react";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata = {
   title: "Business & Board Calendar | Treasure of the Hills Senior Center",
@@ -38,11 +39,15 @@ export default function CalendarPage() {
           </div>
 
           <div className="text-center mt-12">
-            <a 
-              href="#" 
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-sapphire-500/30 text-sapphire-500 hover:text-white hover:bg-sapphire-600 transition-all font-semibold shadow-sm hover:shadow-md cursor-pointer"
+            <p className="text-foreground/70 text-sm mb-4">
+              Prefer a printed copy of this month&apos;s schedule? Give us a call and we&apos;ll have one ready for you.
+            </p>
+            <a
+              href={siteConfig.contact.phoneHref}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-sapphire-500/30 text-sapphire-500 hover:text-white hover:bg-sapphire-600 transition-all font-semibold shadow-sm hover:shadow-md"
             >
-              Download Monthly Calendar (PDF)
+              <Phone className="w-4 h-4" />
+              Call {siteConfig.contact.phone}
             </a>
           </div>
         </div>
