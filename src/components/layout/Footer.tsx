@@ -99,9 +99,12 @@ export function Footer() {
           <p className="text-xs text-foreground/50 text-center">
             © {new Date().getFullYear()} {name} {tagline}. All rights reserved.
           </p>
-          <div className="flex items-center justify-center gap-4 text-xs text-foreground/50">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-foreground/50">
             <Link href="/#contact" className="hover:text-sapphire-400 transition-colors">Contact</Link>
             <Link href="/rentals" className="hover:text-sapphire-400 transition-colors">Rentals</Link>
+            <Link href="/privacy" className="hover:text-sapphire-400 transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-sapphire-400 transition-colors">Terms of Use</Link>
+            <Link href="/accessibility" className="hover:text-sapphire-400 transition-colors">Accessibility</Link>
           </div>
         </div>
       </div>
