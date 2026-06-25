@@ -111,12 +111,12 @@ export function Navbar() {
             }}
             className="relative z-10 flex items-center gap-2 group shrink-0 px-1 py-1"
           >
-            <div className="bg-sapphire-600 p-1.5 rounded-lg text-white group-hover:bg-sapphire-500 transition-colors">
+            <div className="bg-sapphire-600 p-1.5 rounded-lg text-white group-hover:bg-sapphire-700 transition-colors">
               <HeartHandshake className="w-5 h-5" />
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-sm md:text-base leading-none text-foreground tracking-tight">TOTH</span>
-              <span className="text-[10px] text-sapphire-400 font-medium hidden sm:block">Senior Center</span>
+              <span className="text-[10px] text-sapphire-700 dark:text-sapphire-300 font-medium hidden sm:block">Senior Center</span>
             </div>
           </Link>
 
@@ -182,7 +182,7 @@ export function Navbar() {
             <Link
               href="/#membership"
               onClick={(e) => handleNavClick(e, '/#membership')}
-              className="px-5 py-2 rounded-full bg-sapphire-600 hover:bg-sapphire-500 text-white font-medium text-sm transition-all shadow-[0_0_15px_rgba(37,99,235,0.3)] hover:shadow-[0_0_20px_rgba(37,99,235,0.5)]"
+              className="px-5 py-2 rounded-full bg-sapphire-600 hover:bg-sapphire-700 text-white font-medium text-sm transition-all shadow-sm hover:shadow-md"
             >
               Join Today
             </Link>
@@ -225,10 +225,6 @@ export function Navbar() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[90] bg-background/95 backdrop-blur-2xl md:hidden overflow-hidden flex flex-col items-center justify-center"
           >
-            {/* Background decor */}
-            <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-sapphire-500/10 rounded-full blur-[100px] pointer-events-none" />
-            <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-gold-400/5 rounded-full blur-[120px] pointer-events-none" />
-
             <nav className="relative z-10 flex flex-col gap-6 text-center p-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -324,7 +320,7 @@ export function Navbar() {
                 <Link
                   href="/#membership"
                   onClick={(e) => handleNavClick(e, '/#membership')}
-                  className="px-12 py-4 bg-sapphire-600 text-white font-bold text-lg rounded-full uppercase tracking-tight active:bg-sapphire-700 transition-all shadow-xl shadow-sapphire-600/20 inline-block"
+                  className="px-12 py-4 bg-sapphire-600 text-white font-bold text-lg rounded-full uppercase tracking-tight active:bg-sapphire-700 transition-all shadow-lg inline-block"
                 >
                   Join Today
                 </Link>

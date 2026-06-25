@@ -150,7 +150,7 @@ export function BusinessCalendar() {
     return (
       <div className="w-full max-w-6xl mx-auto flex flex-col gap-6 animate-pulse">
         {/* Controls skeleton */}
-        <div className="flex flex-col sm:flex-row gap-4 items-center justify-between bg-zinc-200/50 dark:bg-card/25 p-5 border border-zinc-200 dark:border-border/50 rounded-2xl">
+        <div className="flex flex-col sm:flex-row gap-4 items-center justify-between bg-zinc-100 dark:bg-card p-5 border border-zinc-200 dark:border-border/50 rounded-2xl">
           <div className="w-48 h-10 bg-foreground/10 rounded-xl" />
           <div className="flex flex-wrap gap-2">
             {[1, 2, 3, 4, 5].map(i => (
@@ -163,7 +163,7 @@ export function BusinessCalendar() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Calendar Grid Section */}
           <div className="lg:col-span-2">
-            <div className="p-5 border border-zinc-200 dark:border-border/50 rounded-xl bg-white/95 dark:bg-card/45">
+            <div className="p-5 border border-zinc-200 dark:border-border/50 rounded-xl bg-white dark:bg-card">
               <div className="grid grid-cols-7 gap-2 mb-4">
                 {[1, 2, 3, 4, 5, 6, 7].map(i => (
                   <div key={i} className="h-6 bg-foreground/10 rounded" />
@@ -178,7 +178,7 @@ export function BusinessCalendar() {
           </div>
           {/* Sidebar Section */}
           <div className="flex flex-col gap-4">
-            <div className="p-6 border border-zinc-200 dark:border-border/50 rounded-xl bg-white/95 dark:bg-card/45 h-full min-h-[350px]">
+            <div className="p-6 border border-zinc-200 dark:border-border/50 rounded-xl bg-white dark:bg-card h-full min-h-[350px]">
               <div className="w-3/4 h-6 bg-foreground/10 rounded mb-4" />
               <div className="w-1/2 h-4 bg-foreground/5 rounded mb-8" />
               <div className="flex flex-col gap-4">
@@ -276,13 +276,13 @@ export function BusinessCalendar() {
     <div className="w-full max-w-6xl mx-auto flex flex-col gap-6">
       
       {/* Calendar controls & filters */}
-      <div className="flex flex-col sm:flex-row gap-4 items-center justify-between bg-zinc-200/50 dark:bg-card/25 p-3 md:p-4 border border-zinc-300 dark:border-border/50 rounded-2xl backdrop-blur-md">
+      <div className="flex flex-col sm:flex-row gap-4 items-center justify-between bg-zinc-100 dark:bg-card p-3 md:p-4 border border-zinc-300 dark:border-border rounded-2xl">
         
         {/* Month Selector */}
         <div className="flex items-center gap-4">
           <button 
             onClick={handlePrevMonth}
-            className="p-2 md:p-2.5 rounded-xl border border-zinc-300 dark:border-border bg-white dark:bg-card hover:bg-zinc-100 dark:hover:bg-card/85 text-foreground/80 active:scale-95 transition-all focus-visible:ring-2 focus-visible:ring-sapphire-500 focus-visible:outline-none cursor-pointer"
+            className="p-2 md:p-2.5 rounded-xl border border-zinc-300 dark:border-border bg-white dark:bg-card hover:bg-zinc-100 dark:hover:bg-card/80 text-foreground/80 active:scale-95 transition-all focus-visible:ring-2 focus-visible:ring-sapphire-500 focus-visible:outline-none cursor-pointer"
             aria-label="Previous month"
           >
             <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
@@ -299,7 +299,7 @@ export function BusinessCalendar() {
 
           <button 
             onClick={handleNextMonth}
-            className="p-2 md:p-2.5 rounded-xl border border-zinc-300 dark:border-border bg-white dark:bg-card hover:bg-zinc-100 dark:hover:bg-card/85 text-foreground/80 active:scale-95 transition-all focus-visible:ring-2 focus-visible:ring-sapphire-500 focus-visible:outline-none cursor-pointer"
+            className="p-2 md:p-2.5 rounded-xl border border-zinc-300 dark:border-border bg-white dark:bg-card hover:bg-zinc-100 dark:hover:bg-card/80 text-foreground/80 active:scale-95 transition-all focus-visible:ring-2 focus-visible:ring-sapphire-500 focus-visible:outline-none cursor-pointer"
             aria-label="Next month"
           >
             <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
@@ -321,8 +321,8 @@ export function BusinessCalendar() {
               className={cn(
                 "px-3 py-1.5 md:px-4 md:py-2 rounded-xl text-[10px] md:text-xs font-semibold border transition-all active:scale-95 focus-visible:ring-2 focus-visible:ring-sapphire-500 focus-visible:outline-none cursor-pointer",
                 activeCategory === cat.id
-                  ? "bg-sapphire-600 border-sapphire-600 text-white shadow-md shadow-sapphire-500/20"
-                  : "bg-white dark:bg-card/40 border-zinc-300 dark:border-border/60 text-foreground/80 hover:bg-zinc-100 dark:hover:bg-card/80"
+                  ? "bg-sapphire-600 border-sapphire-600 text-white shadow-md"
+                  : "bg-white dark:bg-card border-zinc-300 dark:border-border text-foreground/80 hover:bg-zinc-100 dark:hover:bg-card/80"
               )}
             >
               {cat.label}
@@ -336,7 +336,7 @@ export function BusinessCalendar() {
         
         {/* Calendar Grid Section */}
         <div className="lg:col-span-2 flex flex-col gap-4">
-          <GlassCard className="p-2.5 md:p-5 border-zinc-300 dark:border-border/60 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+          <GlassCard className="p-2.5 md:p-5 border-zinc-300 dark:border-border/60 shadow-lg">
             
             {/* Day headings */}
             <div className="grid grid-cols-7 gap-1 text-center font-bold text-xs md:text-sm text-foreground/60 mb-1 md:mb-2 uppercase tracking-wider py-1 md:py-2">
@@ -358,12 +358,12 @@ export function BusinessCalendar() {
                     className={cn(
                       "min-h-[46px] md:min-h-[85px] p-1 md:p-2 flex flex-col justify-between items-start border rounded-xl transition-all cursor-pointer relative focus-visible:ring-2 focus-visible:ring-sapphire-500 focus-visible:outline-none",
                       daySlot.isCurrentMonth
-                        ? "bg-white/90 dark:bg-card/25 border-zinc-300 dark:border-border/40 text-foreground"
-                        : "bg-white/40 dark:bg-card/5 border-zinc-200 dark:border-border/10 text-foreground/30 hover:bg-card/10",
+                        ? "bg-white dark:bg-card border-zinc-300 dark:border-border/40 text-foreground"
+                        : "bg-zinc-50 dark:bg-card/40 border-zinc-200 dark:border-border/10 text-foreground/30 hover:bg-zinc-100 dark:hover:bg-card/60",
                       daySlot.isToday && "ring-2 ring-gold-500/50 border-gold-500/40 bg-gold-500/[0.03]",
-                      isSelected 
+                      isSelected
                         ? "bg-sapphire-500/10 border-sapphire-500/70 ring-1 ring-sapphire-500/30"
-                        : "hover:border-zinc-400 dark:hover:border-border hover:bg-card/50"
+                        : "hover:border-zinc-400 dark:hover:border-border hover:bg-zinc-100 dark:hover:bg-card/80"
                     )}
                   >
                     <div className="flex justify-between items-center w-full mb-0.5 md:mb-1">
@@ -381,7 +381,7 @@ export function BusinessCalendar() {
                       {dayEvents.map(evt => (
                         <div 
                           key={evt.id} 
-                          className="flex items-center gap-1 md:gap-1.5 w-auto md:w-full text-[10px] leading-tight font-semibold p-0 md:px-1.5 md:py-0.5 rounded md:border overflow-hidden text-ellipsis whitespace-nowrap bg-transparent md:bg-zinc-100/80 dark:md:bg-card border-none md:border-zinc-300 dark:md:border-border/60"
+                          className="flex items-center gap-1 md:gap-1.5 w-auto md:w-full text-[10px] leading-tight font-semibold p-0 md:px-1.5 md:py-0.5 rounded md:border overflow-hidden text-ellipsis whitespace-nowrap bg-transparent md:bg-zinc-100 dark:md:bg-card border-none md:border-zinc-300 dark:md:border-border/60"
                         >
                           <span className={cn("w-1 md:w-1.5 h-1 md:h-1.5 rounded-full shrink-0", CATEGORY_STYLES[evt.category].dot)} />
                           <span className="hidden sm:inline text-foreground/80">{evt.title}</span>
@@ -397,11 +397,11 @@ export function BusinessCalendar() {
 
         {/* Selected Day Event Details Sidebar */}
         <div className="flex flex-col gap-4">
-          <GlassCard className="p-6 border-zinc-300 dark:border-border/60 shadow-[0_8px_30px_rgba(0,0,0,0.04)] flex flex-col h-full">
+          <GlassCard className="p-6 border-zinc-300 dark:border-border/60 shadow-lg flex flex-col h-full">
             
             {/* Header info */}
             <div className="flex items-center gap-3 border-b border-zinc-300 dark:border-border/60 pb-4 mb-4">
-              <Calendar className="w-5 h-5 text-sapphire-500" />
+              <Calendar className="w-5 h-5 text-sapphire-700 dark:text-sapphire-300" />
               <div>
                 <h3 className="font-bold text-lg text-foreground">
                   {formatSelectedDate(selectedDate)}
@@ -419,13 +419,13 @@ export function BusinessCalendar() {
                   return (
                     <div 
                       key={evt.id} 
-                      className="p-4 rounded-xl border border-zinc-300 dark:border-border/60 bg-white dark:bg-card/30 flex flex-col gap-3 hover:border-zinc-400 dark:hover:border-border transition-all"
+                      className="p-4 rounded-xl border border-zinc-300 dark:border-border/60 bg-white dark:bg-card flex flex-col gap-3 hover:border-zinc-400 dark:hover:border-border transition-all"
                     >
                       <div className="flex justify-between items-start gap-2">
                         <span className={cn("px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider border", styles.color)}>
                           {styles.label}
                         </span>
-                        <div className="bg-zinc-100 dark:bg-card/50 p-1.5 rounded-lg border border-zinc-300 dark:border-border/40 text-foreground/70 shrink-0">
+                        <div className="bg-zinc-100 dark:bg-card p-1.5 rounded-lg border border-zinc-300 dark:border-border/40 text-foreground/70 shrink-0">
                           <Icon className="w-4 h-4" />
                         </div>
                       </div>
@@ -434,16 +434,16 @@ export function BusinessCalendar() {
 
                       <div className="flex flex-col gap-1.5 text-xs text-foreground/75 font-medium">
                         <div className="flex items-center gap-2">
-                          <Clock className="w-3.5 h-3.5 text-sapphire-500 shrink-0" />
+                          <Clock className="w-3.5 h-3.5 text-sapphire-700 dark:text-sapphire-300 shrink-0" />
                           <span>{evt.time}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <MapPin className="w-3.5 h-3.5 text-sapphire-500 shrink-0" />
+                          <MapPin className="w-3.5 h-3.5 text-sapphire-700 dark:text-sapphire-300 shrink-0" />
                           <span className="truncate">{evt.location}</span>
                         </div>
                       </div>
 
-                      <p className="text-xs text-foreground/75 leading-relaxed bg-zinc-100 dark:bg-card/20 p-2.5 border border-zinc-200 dark:border-border/30 rounded-lg">
+                      <p className="text-xs text-foreground/75 leading-relaxed bg-zinc-100 dark:bg-card p-2.5 border border-zinc-200 dark:border-border/30 rounded-lg">
                         {evt.description}
                       </p>
                     </div>
@@ -476,7 +476,7 @@ export function BusinessCalendar() {
                         <button
                           key={evt.id}
                           onClick={() => setSelectedDate(evt.date)}
-                          className="flex items-center justify-between p-3 rounded-xl border border-zinc-300 dark:border-border/40 bg-white dark:bg-card/10 hover:bg-zinc-100 dark:hover:bg-card/45 hover:border-zinc-400 dark:hover:border-border/80 transition-all text-left w-full focus-visible:ring-2 focus-visible:ring-sapphire-500 focus-visible:outline-none cursor-pointer"
+                          className="flex items-center justify-between p-3 rounded-xl border border-zinc-300 dark:border-border/40 bg-white dark:bg-card hover:bg-zinc-100 dark:hover:bg-card/80 hover:border-zinc-400 dark:hover:border-border/80 transition-all text-left w-full focus-visible:ring-2 focus-visible:ring-sapphire-500 focus-visible:outline-none cursor-pointer"
                         >
                           <div className="flex items-center gap-3 overflow-hidden">
                             <span className={cn("w-2 h-2 rounded-full shrink-0", styles.dot)} />

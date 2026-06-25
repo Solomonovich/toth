@@ -160,7 +160,7 @@ export function PhotoGallery() {
   return (
     <div className="w-full flex flex-col items-center">
       {/* Category Filter Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-12 bg-card/40 backdrop-blur-md p-2 rounded-2xl border border-border/60 shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
+      <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-12 bg-card p-2 rounded-2xl border border-border shadow-sm">
         <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-foreground/60 border-r border-border/50 mr-1">
           <Filter className="w-4 h-4" />
           <span className="text-sm font-medium">Filter:</span>
@@ -173,8 +173,8 @@ export function PhotoGallery() {
               onClick={() => setActiveCategory(cat.id)}
               className={cn(
                 "px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300",
-                isActive 
-                  ? "text-white bg-sapphire-600 shadow-[0_4px_15px_rgba(37,99,235,0.3)]" 
+                isActive
+                  ? "text-white bg-sapphire-600 shadow-md"
                   : "text-foreground/70 hover:text-foreground hover:bg-foreground/5"
               )}
             >
@@ -190,13 +190,13 @@ export function PhotoGallery() {
           <div
             key={photo.id}
             className={cn(
-              "group relative rounded-2xl overflow-hidden bg-card/30 border border-border/50 shadow-[0_8px_30px_rgba(0,0,0,0.1)] cursor-pointer flex flex-col transition-transform duration-300 hover:scale-[1.02]",
+              "group relative rounded-2xl overflow-hidden bg-card border border-border shadow-lg cursor-pointer flex flex-col transition-transform duration-300 hover:scale-[1.02]",
               photo.aspect === "portrait" ? "h-[380px]" : "h-[280px]"
             )}
             onClick={() => setSelectedPhoto(photo)}
           >
             {/* Image */}
-            <div className="absolute inset-0 w-full h-full overflow-hidden bg-card/50">
+            <div className="absolute inset-0 w-full h-full overflow-hidden bg-card">
               <Image 
                 src={photo.url} 
                 alt={photo.title}
@@ -208,7 +208,7 @@ export function PhotoGallery() {
 
             {/* Hover Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 z-10">
-              <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+              <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                 <Maximize2 className="w-5 h-5" />
               </div>
               <span className="text-xs font-semibold uppercase tracking-wider text-sapphire-300 mb-1">
@@ -235,7 +235,7 @@ export function PhotoGallery() {
       {/* Lightbox Modal */}
       {selectedPhoto && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-xl p-4 md:p-8"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 md:p-8"
           onClick={() => setSelectedPhoto(null)}
         >
           <div
@@ -245,7 +245,7 @@ export function PhotoGallery() {
             {/* Close Button */}
             <button
               onClick={() => setSelectedPhoto(null)}
-              className="absolute top-4 right-4 z-50 w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition-colors backdrop-blur-md"
+              className="absolute top-4 right-4 z-50 w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition-colors"
               aria-label="Close modal"
             >
               <X className="w-6 h-6" />
@@ -277,7 +277,7 @@ export function PhotoGallery() {
               </div>
               <button
                 onClick={() => setSelectedPhoto(null)}
-                className="px-6 py-2.5 rounded-xl bg-sapphire-600 hover:bg-sapphire-500 text-white font-medium text-sm transition-colors shadow-lg"
+                className="px-6 py-2.5 rounded-xl bg-sapphire-600 hover:bg-sapphire-700 text-white font-medium text-sm transition-colors shadow-md"
               >
                 Close Preview
               </button>

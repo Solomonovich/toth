@@ -12,16 +12,10 @@ export const metadata = {
 export default function RentalsPage() {
   return (
     <div className="flex flex-col w-full relative overflow-x-hidden pt-6 md:pt-10">
-      {/* Background gradients */}
-      <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden hidden md:block">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-sapphire-900/20 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-gold-900/15 blur-[120px]" />
-      </div>
-
       <AnimatedSection id="rentals-header" className="py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-500 mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-700 dark:text-gold-400 mb-2">
               <Home className="w-4 h-4" />
               <span className="text-sm font-medium">Rental Spaces</span>
             </div>
@@ -33,13 +27,13 @@ export default function RentalsPage() {
         </div>
       </AnimatedSection>
 
-      <AnimatedSection id="rentals-options" className="py-12 bg-card/30 border-y border-border/50">
+      <AnimatedSection id="rentals-options" className="py-12 bg-card border-y border-border">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <GlassCard className="p-0 overflow-hidden flex flex-col text-center group border-border/60 shadow-lg">
-              <div className="w-full h-64 relative overflow-hidden bg-card/50">
-                <Image 
-                  src="/images/great-room.jpg" 
+            <GlassCard className="p-0 overflow-hidden flex flex-col text-center group border-border shadow-lg">
+              <div className="w-full h-64 relative overflow-hidden bg-card">
+                <Image
+                  src="/images/great-room.jpg"
                   alt="Main Hall Great Room" 
                   fill
                   sizes="(max-width: 768px) 100vw, 500px"
@@ -50,19 +44,19 @@ export default function RentalsPage() {
                   <Home className="w-6 h-6" />
                 </div>
               </div>
-              <div className="p-6 pt-4 flex flex-col items-center flex-grow bg-card/10">
+              <div className="p-6 pt-4 flex flex-col items-center flex-grow bg-card">
                 <h2 className="font-bold text-2xl mb-1">Main Hall (Great Room)</h2>
-                <p className="text-sm text-sapphire-500 font-bold uppercase tracking-wider mb-3">Capacity: 120 people</p>
+                <p className="text-sm text-sapphire-700 dark:text-sapphire-300 font-bold uppercase tracking-wider mb-3">Capacity: 120 people</p>
                 <p className="text-base text-foreground/80 leading-relaxed max-w-sm">
                   Spacious hall with hardwood floors, dance floor, kitchen access, and flexible seating configurations. Perfect for large gatherings, receptions, parties, and club events.
                 </p>
               </div>
             </GlassCard>
 
-            <GlassCard className="p-0 overflow-hidden flex flex-col text-center group border-border/60 shadow-lg">
-              <div className="w-full h-64 relative overflow-hidden bg-card/50">
-                <Image 
-                  src="/images/windows-flag.jpg" 
+            <GlassCard className="p-0 overflow-hidden flex flex-col text-center group border-border shadow-lg">
+              <div className="w-full h-64 relative overflow-hidden bg-card">
+                <Image
+                  src="/images/windows-flag.jpg"
                   alt="Meeting Rooms & Grounds" 
                   fill
                   sizes="(max-width: 768px) 100vw, 500px"
@@ -73,9 +67,9 @@ export default function RentalsPage() {
                   <Users className="w-6 h-6" />
                 </div>
               </div>
-              <div className="p-6 pt-4 flex flex-col items-center flex-grow bg-card/10">
+              <div className="p-6 pt-4 flex flex-col items-center flex-grow bg-card">
                 <h2 className="font-bold text-2xl mb-1">Meeting Rooms & Grounds</h2>
-                <p className="text-sm text-sapphire-500 font-bold uppercase tracking-wider mb-3">Capacity: 15-30 people</p>
+                <p className="text-sm text-sapphire-700 dark:text-sapphire-300 font-bold uppercase tracking-wider mb-3">Capacity: 15-30 people</p>
                 <p className="text-base text-foreground/80 leading-relaxed max-w-sm">
                   Cozy rooms ideal for classes, discussion groups, board meetings, or intimate gatherings. Offers direct access to our quiet outdoor patio and memorial garden.
                 </p>
@@ -83,7 +77,7 @@ export default function RentalsPage() {
             </GlassCard>
           </div>
 
-          <div className="max-w-4xl mx-auto bg-card/30 p-6 md:p-8 rounded-2xl border border-border/50 mt-12">
+          <div className="max-w-4xl mx-auto bg-card p-6 md:p-8 rounded-2xl border border-border mt-12">
             <h3 className="font-bold text-lg mb-4 text-center">Amenities Included with Rentals</h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-left">
               {[
@@ -94,8 +88,8 @@ export default function RentalsPage() {
                 "Free high-speed Wi-Fi",
                 "Large flat screen TV for presentation"
               ].map((amenity, i) => (
-                <li key={i} className="flex items-center gap-2.5 text-foreground/80 bg-card/25 p-3 rounded-xl border border-border/30">
-                  <CheckCircle2 className="w-4 h-4 text-gold-500 shrink-0" />
+                <li key={i} className="flex items-center gap-2.5 text-foreground/80 bg-card p-3 rounded-xl border border-border">
+                  <CheckCircle2 className="w-4 h-4 text-gold-700 dark:text-gold-400 shrink-0" />
                   <span className="text-sm font-medium">{amenity}</span>
                 </li>
               ))}
@@ -107,8 +101,8 @@ export default function RentalsPage() {
       <AnimatedSection id="rentals-form" className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="w-full max-w-2xl mx-auto">
-            <GlassCard className="p-8 md:p-10 border-gold-500/30 shadow-[0_8px_32px_0_rgba(202,138,4,0.15)] text-center">
-              <h3 className="text-3xl font-bold mb-4 text-gold-500">Submit a Rental Inquiry</h3>
+            <GlassCard className="p-8 md:p-10 border-gold-500/30 shadow-md text-center">
+              <h3 className="text-3xl font-bold mb-4 text-gold-700 dark:text-gold-400">Submit a Rental Inquiry</h3>
               <p className="text-foreground/75 text-sm mb-8">Please fill out the form below with your event details, and our rental coordinator will get back to you within 24 hours.</p>
               <RentalForm />
             </GlassCard>

@@ -29,7 +29,7 @@ export function RentalForm() {
         animate={{ opacity: 1, scale: 1 }}
         className="flex flex-col items-center justify-center p-8 text-center space-y-4"
       >
-        <div className="w-16 h-16 bg-gold-500/20 text-gold-500 rounded-full flex items-center justify-center mb-4">
+        <div className="w-16 h-16 bg-gold-500/20 text-gold-700 dark:text-gold-400 rounded-full flex items-center justify-center mb-4">
           <CheckCircle2 className="w-8 h-8" />
         </div>
         <h3 className="text-2xl font-bold text-foreground">Request Received!</h3>
@@ -38,7 +38,7 @@ export function RentalForm() {
         </p>
         <button
           onClick={reset}
-          className="mt-6 text-gold-400 hover:text-gold-300 font-medium transition-colors"
+          className="mt-6 text-gold-700 dark:text-gold-400 hover:text-gold-800 dark:hover:text-gold-300 font-medium transition-colors"
         >
           Submit another request
         </button>
@@ -63,7 +63,7 @@ export function RentalForm() {
               id="contactName"
               name="contactName"
               autoComplete="name"
-              className="w-full px-4 py-3 bg-background/50 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold-500/50 transition-all text-foreground"
+              className="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-gold-500/50 transition-all text-foreground"
               placeholder="Enter your full name"
             />
           </div>
@@ -73,7 +73,7 @@ export function RentalForm() {
               id="orgName"
               name="orgName"
               autoComplete="organization"
-              className="w-full px-4 py-3 bg-background/50 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold-500/50 transition-all text-foreground"
+              className="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-gold-500/50 transition-all text-foreground"
               placeholder="e.g. Cedar Park Club"
             />
           </div>
@@ -88,7 +88,7 @@ export function RentalForm() {
               id="rentalEmail"
               name="email"
               autoComplete="email"
-              className="w-full px-4 py-3 bg-background/50 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold-500/50 transition-all text-foreground"
+              className="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-gold-500/50 transition-all text-foreground"
               placeholder="you@example.com"
             />
           </div>
@@ -100,7 +100,7 @@ export function RentalForm() {
               id="rentalPhone"
               name="phone"
               autoComplete="tel"
-              className="w-full px-4 py-3 bg-background/50 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold-500/50 transition-all text-foreground"
+              className="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-gold-500/50 transition-all text-foreground"
               placeholder="(555) 123-4567"
             />
           </div>
@@ -115,7 +115,7 @@ export function RentalForm() {
                 type="date"
                 id="eventDate"
                 name="eventDate"
-                className="w-full pl-11 pr-4 py-3 bg-background/50 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold-500/50 transition-all text-foreground"
+                className="w-full pl-11 pr-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-gold-500/50 transition-all text-foreground"
               />
               <Calendar className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-foreground/50 pointer-events-none" />
             </div>
@@ -126,7 +126,7 @@ export function RentalForm() {
               id="guestCount"
               name="guestCount"
               defaultValue="1-50"
-              className="w-full px-4 py-3 bg-background/50 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold-500/50 transition-all text-foreground appearance-none"
+              className="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-gold-500/50 transition-all text-foreground appearance-none"
             >
               <option value="1-50">1 - 50 people</option>
               <option value="51-100">51 - 100 people</option>
@@ -142,7 +142,7 @@ export function RentalForm() {
             id="eventDetails"
             name="eventDetails"
             rows={4}
-            className="w-full px-4 py-3 bg-background/50 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold-500/50 transition-all text-foreground resize-none"
+            className="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-gold-500/50 transition-all text-foreground resize-none"
             placeholder="Please describe the type of event you are planning..."
           />
         </div>
@@ -157,7 +157,7 @@ export function RentalForm() {
       <button 
         disabled={isSubmitting}
         type="submit" 
-        className="w-full py-4 bg-gold-600 hover:bg-gold-500 disabled:bg-gold-600/50 text-white rounded-xl font-semibold transition-all shadow-[0_0_20px_rgba(202,138,4,0.2)] hover:shadow-[0_0_30px_rgba(202,138,4,0.4)] disabled:shadow-none flex items-center justify-center gap-2"
+        className="w-full py-4 bg-gold-600 hover:bg-gold-700 disabled:bg-gold-600/50 text-white rounded-xl font-semibold transition-all shadow-md hover:shadow-lg disabled:shadow-none flex items-center justify-center gap-2"
       >
         {isSubmitting ? (
           <>

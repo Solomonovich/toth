@@ -3,29 +3,31 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-sapphire-50: #eff6ff;
-  --color-sapphire-100: #dbeafe;
-  --color-sapphire-200: #bfdbfe;
-  --color-sapphire-300: #93c5fd;
-  --color-sapphire-400: #60a5fa;
-  --color-sapphire-500: #3b82f6;
-  --color-sapphire-600: #2563eb;
-  --color-sapphire-700: #1d4ed8;
-  --color-sapphire-800: #1e40af;
-  --color-sapphire-900: #1e3a8a;
-  --color-sapphire-950: #172554;
-  
-  --color-gold-50: #fefce8;
-  --color-gold-100: #fef9c3;
-  --color-gold-200: #fef08a;
-  --color-gold-300: #fde047;
-  --color-gold-400: #facc15;
-  --color-gold-500: #eab308;
-  --color-gold-600: #ca8a04;
-  --color-gold-700: #a16207;
-  --color-gold-800: #854d0e;
-  --color-gold-900: #713f12;
-  --color-gold-950: #422006;
+  /* Bluebonnet navy — the trustworthy anchor (primary = 600). */
+  --color-sapphire-50: #eff3f9;
+  --color-sapphire-100: #dde6f1;
+  --color-sapphire-200: #bccde2;
+  --color-sapphire-300: #93acd0;
+  --color-sapphire-400: #6b89bd;
+  --color-sapphire-500: #496aa0;
+  --color-sapphire-600: #2f4a7a;
+  --color-sapphire-700: #283f67;
+  --color-sapphire-800: #233655;
+  --color-sapphire-900: #1f2d47;
+  --color-sapphire-950: #141d2f;
+
+  /* Wildflower goldenrod — warm accent (accessible amber = 600). */
+  --color-gold-50: #fcf8ee;
+  --color-gold-100: #f7edcf;
+  --color-gold-200: #efd99c;
+  --color-gold-300: #e6c163;
+  --color-gold-400: #d9a72f;
+  --color-gold-500: #c08a18;
+  --color-gold-600: #9a6510;
+  --color-gold-700: #7d5210;
+  --color-gold-800: #674513;
+  --color-gold-900: #583a14;
+  --color-gold-950: #331f07;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -36,28 +38,39 @@
 
 @layer base {
   :root {
-    --background: #ffffff;
-    --foreground: #09090b;
-    --card: #f4f4f5; /* zinc-100 */
-    --card-foreground: #09090b;
-    --border: #d4d4d8; /* zinc-300 for higher contrast in light mode */
+    --background: #faf8f3; /* warm paper */
+    --foreground: #1f2937; /* Hill Country ink */
+    --card: #ffffff;
+    --card-foreground: #1f2937;
+    --border: #e7e1d4; /* warm border */
   }
-  
+
   .dark {
-    --background: #09090b; /* zinc-950 */
-    --foreground: #fafafa; /* zinc-50 */
-    --card: #18181b; /* zinc-900 */
-    --card-foreground: #fafafa;
-    --border: #27272a; /* zinc-800 */
+    --background: #14171f; /* deep navy-charcoal */
+    --foreground: #f0ece3; /* warm off-white */
+    --card: #1c2230;
+    --card-foreground: #f0ece3;
+    --border: #2c3445;
   }
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-source-sans), system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Serif headings (Fraunces) over the sans body — the chosen type system. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  letter-spacing: -0.01em;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -154,4 +167,3 @@ html[data-font-size="xlarge"] {
   color: var(--foreground);
   font-weight: 600;
 }
-

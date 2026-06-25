@@ -8,9 +8,6 @@ export function Footer() {
 
   return (
     <footer className="bg-card/50 border-t border-border mt-24 py-12 md:py-16 relative overflow-hidden">
-      {/* Decorative gradient */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-sapphire-500/50 to-transparent" />
-
       <div className="container mx-auto px-4 md:px-6">
         {/* Newsletter band */}
         <div className="max-w-2xl mx-auto text-center mb-14 pb-12 border-b border-border">
@@ -31,7 +28,7 @@ export function Footer() {
               </div>
               <div className="flex flex-col items-start text-left">
                 <span className="font-bold text-lg leading-none">{siteConfig.shortName}</span>
-                <span className="text-xs text-sapphire-400">{tagline}</span>
+                <span className="text-xs text-sapphire-700 dark:text-sapphire-300">{tagline}</span>
               </div>
             </div>
             <p className="text-sm text-foreground/70 leading-relaxed max-w-xs">
@@ -41,43 +38,43 @@ export function Footer() {
 
           {/* Quick Links */}
           <div className="flex flex-col items-center gap-4">
-            <h3 className="font-semibold text-lg text-gold-400">Quick Links</h3>
+            <h3 className="font-semibold text-lg text-gold-700 dark:text-gold-400">Quick Links</h3>
             <ul className="flex flex-col items-center gap-2">
-              <li><Link href="/#about" className="text-sm text-foreground/70 hover:text-sapphire-400 transition-colors">About Us</Link></li>
-              <li><Link href="/#activities" className="text-sm text-foreground/70 hover:text-sapphire-400 transition-colors">Activities &amp; Programs</Link></li>
-              <li><Link href="/calendar" className="text-sm text-foreground/70 hover:text-sapphire-400 transition-colors">Events Calendar</Link></li>
-              <li><Link href="/#gallery" className="text-sm text-foreground/70 hover:text-sapphire-400 transition-colors">Photo Gallery</Link></li>
-              <li><Link href="/#membership" className="text-sm text-foreground/70 hover:text-sapphire-400 transition-colors">Become a Member</Link></li>
-              <li><Link href="/rentals" className="text-sm text-foreground/70 hover:text-sapphire-400 transition-colors">Facility Rentals</Link></li>
-              <li><Link href="/#contact" className="text-sm text-foreground/70 hover:text-sapphire-400 transition-colors">Contact Us</Link></li>
+              <li><Link href="/#about" className="text-sm text-foreground/70 hover:text-sapphire-700 dark:hover:text-sapphire-300 transition-colors">About Us</Link></li>
+              <li><Link href="/#activities" className="text-sm text-foreground/70 hover:text-sapphire-700 dark:hover:text-sapphire-300 transition-colors">Activities &amp; Programs</Link></li>
+              <li><Link href="/calendar" className="text-sm text-foreground/70 hover:text-sapphire-700 dark:hover:text-sapphire-300 transition-colors">Events Calendar</Link></li>
+              <li><Link href="/#gallery" className="text-sm text-foreground/70 hover:text-sapphire-700 dark:hover:text-sapphire-300 transition-colors">Photo Gallery</Link></li>
+              <li><Link href="/#membership" className="text-sm text-foreground/70 hover:text-sapphire-700 dark:hover:text-sapphire-300 transition-colors">Become a Member</Link></li>
+              <li><Link href="/rentals" className="text-sm text-foreground/70 hover:text-sapphire-700 dark:hover:text-sapphire-300 transition-colors">Facility Rentals</Link></li>
+              <li><Link href="/#contact" className="text-sm text-foreground/70 hover:text-sapphire-700 dark:hover:text-sapphire-300 transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div className="flex flex-col items-center gap-4">
-            <h3 className="font-semibold text-lg text-gold-400">Contact Us</h3>
+            <h3 className="font-semibold text-lg text-gold-700 dark:text-gold-400">Contact Us</h3>
             <ul className="flex flex-col items-center gap-3">
               <li className="flex flex-col items-center gap-1">
-                <MapPin className="w-5 h-5 text-sapphire-400" />
+                <MapPin className="w-5 h-5 text-sapphire-600 dark:text-sapphire-400" />
                 <span className="text-sm text-foreground/70">{contact.addressLine}<br />{contact.city}, {contact.state} {contact.zip}</span>
               </li>
               <li className="flex flex-col items-center gap-1">
-                <Phone className="w-5 h-5 text-sapphire-400" />
-                <a href={contact.phoneHref} className="text-sm text-foreground/70 hover:text-sapphire-400 transition-colors">{contact.phone}</a>
+                <Phone className="w-5 h-5 text-sapphire-600 dark:text-sapphire-400" />
+                <a href={contact.phoneHref} className="text-sm text-foreground/70 hover:text-sapphire-700 dark:hover:text-sapphire-300 transition-colors">{contact.phone}</a>
               </li>
               <li className="flex flex-col items-center gap-1">
-                <Mail className="w-5 h-5 text-sapphire-400" />
-                <a href={`mailto:${contact.email}`} className="text-sm text-foreground/70 hover:text-sapphire-400 transition-colors break-all">{contact.email}</a>
+                <Mail className="w-5 h-5 text-sapphire-600 dark:text-sapphire-400" />
+                <a href={`mailto:${contact.email}`} className="text-sm text-foreground/70 hover:text-sapphire-700 dark:hover:text-sapphire-300 transition-colors break-all">{contact.email}</a>
               </li>
             </ul>
           </div>
 
           {/* Hours */}
           <div className="flex flex-col items-center gap-4">
-            <h3 className="font-semibold text-lg text-gold-400">Hours of Operation</h3>
+            <h3 className="font-semibold text-lg text-gold-700 dark:text-gold-400">Hours of Operation</h3>
             <ul className="flex flex-col items-center gap-3">
               <li className="flex flex-col items-center gap-1">
-                <Clock className="w-5 h-5 text-sapphire-400" />
+                <Clock className="w-5 h-5 text-sapphire-600 dark:text-sapphire-400" />
                 <div className="flex flex-col text-sm text-foreground/70 text-center">
                   <span className="font-medium text-foreground/90">{hours.weekdays.label}</span>
                   <span>{hours.weekdays.value}</span>
@@ -100,11 +97,11 @@ export function Footer() {
             © {new Date().getFullYear()} {name} {tagline}. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-foreground/50">
-            <Link href="/#contact" className="hover:text-sapphire-400 transition-colors">Contact</Link>
-            <Link href="/rentals" className="hover:text-sapphire-400 transition-colors">Rentals</Link>
-            <Link href="/privacy" className="hover:text-sapphire-400 transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-sapphire-400 transition-colors">Terms of Use</Link>
-            <Link href="/accessibility" className="hover:text-sapphire-400 transition-colors">Accessibility</Link>
+            <Link href="/#contact" className="hover:text-sapphire-700 dark:hover:text-sapphire-300 transition-colors">Contact</Link>
+            <Link href="/rentals" className="hover:text-sapphire-700 dark:hover:text-sapphire-300 transition-colors">Rentals</Link>
+            <Link href="/privacy" className="hover:text-sapphire-700 dark:hover:text-sapphire-300 transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-sapphire-700 dark:hover:text-sapphire-300 transition-colors">Terms of Use</Link>
+            <Link href="/accessibility" className="hover:text-sapphire-700 dark:hover:text-sapphire-300 transition-colors">Accessibility</Link>
           </div>
         </div>
       </div>

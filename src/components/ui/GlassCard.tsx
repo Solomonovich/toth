@@ -11,10 +11,10 @@ export const GlassCard = forwardRef<HTMLDivElement, GlassCardProps>(
       <div
         ref={ref}
         className={cn(
-          "rounded-xl bg-white/95 dark:bg-card/40 backdrop-blur-md border border-zinc-300 dark:border-border/50",
-          "shadow-[0_8px_30px_rgba(0,0,0,0.04)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)]",
-          variant === "hover" && "transition-all duration-300 hover:bg-white dark:hover:bg-card/60 hover:border-sapphire-500/50 hover:shadow-[0_8px_32px_rgba(59,130,246,0.1)]",
-          variant === "interactive" && "transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer hover:bg-white dark:hover:bg-card/60 hover:border-sapphire-500/50",
+          "rounded-xl bg-card border border-border",
+          "shadow-sm",
+          variant === "hover" && "transition-all duration-300 hover:border-sapphire-600/40 hover:shadow-md",
+          variant === "interactive" && "transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer hover:border-sapphire-600/40 hover:shadow-md",
           className
         )}
         {...props}

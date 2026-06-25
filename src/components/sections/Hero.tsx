@@ -31,7 +31,7 @@ export function Hero() {
       >
         <motion.div
           variants={staggerItem}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sapphire-500/10 border border-sapphire-500/20 text-sapphire-400 mb-8"
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sapphire-500/10 border border-sapphire-500/20 text-sapphire-700 dark:text-sapphire-300 mb-8"
         >
           <HeartHandshake className="w-4 h-4" />
           <span className="text-sm font-medium">Welcome to TOTH</span>
@@ -42,7 +42,7 @@ export function Hero() {
           className="text-5xl md:text-7xl font-bold tracking-tight mb-6 max-w-4xl"
         >
           Your Community for{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-sapphire-400 to-gold-400">
+          <span className="text-gold-700 dark:text-gold-400">
             Connection &amp; Growth
           </span>
         </motion.h1>
@@ -59,7 +59,7 @@ export function Hero() {
         <motion.div variants={staggerItem} className="flex flex-col sm:flex-row gap-4 mb-16">
           <a
             href="#membership"
-            className="px-8 py-4 rounded-xl bg-sapphire-600 hover:bg-sapphire-500 text-white font-medium transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] flex items-center justify-center gap-2"
+            className="px-8 py-4 rounded-xl bg-sapphire-600 hover:bg-sapphire-700 text-white font-medium transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2"
           >
             Become a Member
           </a>
@@ -75,7 +75,7 @@ export function Hero() {
         <motion.div
           variants={staggerItem}
           style={{ y: bannerY }}
-          className="w-full max-w-5xl rounded-2xl overflow-hidden border border-border/60 shadow-[0_0_50px_rgba(37,99,235,0.15)] relative group bg-card/40 backdrop-blur-md p-2"
+          className="w-full max-w-5xl rounded-2xl overflow-hidden border border-border/60 shadow-lg relative group bg-card p-2"
         >
           <div className="rounded-xl overflow-hidden relative h-[200px] sm:h-[360px] bg-white">
             <Image

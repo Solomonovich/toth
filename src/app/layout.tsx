@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -8,14 +8,18 @@ import { ScrollReset } from "@/components/ui/ScrollReset";
 import { SeoJsonLd } from "@/components/SeoJsonLd";
 import { siteConfig, fullAddress } from "@/lib/site-config";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Hill Country Heritage type system: a soft serif for headings, a clean,
+// highly-legible humanist sans for body — sized/contrasted for older readers.
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const sourceSans = Source_Sans_3({
+  variable: "--font-source-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -60,8 +64,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   // No maximumScale cap — seniors and low-vision visitors must be able to pinch-zoom.
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#09090b" },
+    { media: "(prefers-color-scheme: light)", color: "#faf8f3" },
+    { media: "(prefers-color-scheme: dark)", color: "#14171f" },
   ],
 };
 
@@ -73,7 +77,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={`${fraunces.variable} ${sourceSans.variable}`}
       suppressHydrationWarning
     >
       <body className="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-sapphire-500/30">

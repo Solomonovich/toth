@@ -19,22 +19,15 @@ import {
 export default function HomePage() {
   return (
     <div className="flex flex-col w-full relative overflow-x-hidden">
-      {/* Background gradients */}
-      <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden hidden md:block">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-sapphire-900/30 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-gold-900/20 blur-[120px]" />
-        <div className="absolute top-[40%] right-[10%] w-[30%] h-[30%] rounded-full bg-sapphire-800/20 blur-[100px]" />
-      </div>
-
       {/* Hero Section */}
       <Hero />
 
       {/* About Section */}
-      <AnimatedSection id="about" className="bg-card/30 border-y border-border/50">
+      <AnimatedSection id="about" className="bg-card border-y border-border/50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="space-y-6 flex flex-col items-start text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-700 dark:text-gold-400">
                 <Users className="w-4 h-4" />
                 <span className="text-sm font-medium">Our Story</span>
               </div>
@@ -47,12 +40,12 @@ export default function HomePage() {
               </p>
 
               <div className="grid grid-cols-2 gap-6 pt-4 w-full">
-                <div className="flex flex-col gap-1 p-4 rounded-xl bg-card/50 border border-border/50">
-                  <CountUp end={50} suffix="+" className="text-4xl font-bold text-sapphire-400" />
+                <div className="flex flex-col gap-1 p-4 rounded-xl bg-card border border-border/50">
+                  <CountUp end={50} suffix="+" className="text-4xl font-bold text-sapphire-700 dark:text-sapphire-300" />
                   <span className="text-sm text-foreground/70 font-medium">Years Old to Join</span>
                 </div>
-                <div className="flex flex-col gap-1 p-4 rounded-xl bg-card/50 border border-border/50">
-                  <CountUp end={100} suffix="%" className="text-4xl font-bold text-gold-400" />
+                <div className="flex flex-col gap-1 p-4 rounded-xl bg-card border border-border/50">
+                  <CountUp end={100} suffix="%" className="text-4xl font-bold text-gold-700 dark:text-gold-400" />
                   <span className="text-sm text-foreground/70 font-medium">Volunteer Driven</span>
                 </div>
               </div>
@@ -67,7 +60,7 @@ export default function HomePage() {
 
             {/* About Images Showcase */}
             <div className="relative flex flex-col gap-6 w-full px-4 sm:px-0">
-              <div className="rounded-2xl overflow-hidden border border-border/60 shadow-2xl relative group bg-card/40 p-2 backdrop-blur-sm">
+              <div className="rounded-2xl overflow-hidden border border-border/60 shadow-2xl relative group bg-card p-2">
                 <div className="rounded-xl overflow-hidden relative h-[280px] sm:h-[320px]">
                   <Image
                     src="/images/reception.jpg"
@@ -82,7 +75,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="rounded-2xl overflow-hidden border border-border/60 shadow-2xl relative group bg-card/40 p-2 backdrop-blur-sm sm:w-4/5 sm:self-end sm:-mt-20 z-10">
+              <div className="rounded-2xl overflow-hidden border border-border/60 shadow-2xl relative group bg-card p-2 sm:w-4/5 sm:self-end sm:-mt-20 z-10">
                 <div className="rounded-xl overflow-hidden relative h-[200px] sm:h-[240px]">
                   <Image
                     src="/images/food-bank.jpg"
@@ -114,8 +107,8 @@ export default function HomePage() {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {activities.map((activity) => (
               <StaggerItem key={activity.title}>
-                <GlassCard variant="hover" className="p-0 overflow-hidden flex flex-col h-full text-center group border-border/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
-                  <div className="w-full h-52 relative overflow-hidden bg-card/50">
+                <GlassCard variant="hover" className="p-0 overflow-hidden flex flex-col h-full text-center group border-border/60 shadow-lg">
+                  <div className="w-full h-52 relative overflow-hidden bg-card">
                     <Image
                       src={activity.img}
                       alt={activity.title}
@@ -124,11 +117,11 @@ export default function HomePage() {
                       className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/20 to-transparent" />
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-12 h-12 rounded-xl bg-sapphire-600 text-white flex items-center justify-center shadow-lg group-hover:bg-sapphire-500 transition-colors z-10">
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-12 h-12 rounded-xl bg-sapphire-600 text-white flex items-center justify-center shadow-lg group-hover:bg-sapphire-700 transition-colors z-10">
                       <activity.icon className="w-6 h-6" />
                     </div>
                   </div>
-                  <div className="p-6 pt-4 flex flex-col items-center gap-3 flex-grow bg-card/10">
+                  <div className="p-6 pt-4 flex flex-col items-center gap-3 flex-grow bg-card">
                     <h3 className="text-xl font-bold">{activity.title}</h3>
                     <p className="text-foreground/70 text-sm leading-relaxed">{activity.desc}</p>
                   </div>
@@ -138,10 +131,10 @@ export default function HomePage() {
           </StaggerContainer>
 
           {/* Business & Board Events Calendar Teaser */}
-          <div className="mt-20 p-8 rounded-3xl bg-card/40 border border-border/60 backdrop-blur-md max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+          <div className="mt-20 p-8 rounded-3xl bg-card border border-border/60 max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
             <div className="space-y-3 max-w-xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sapphire-500/10 border border-sapphire-500/20 text-sapphire-400">
-                <CalendarDays className="w-4 h-4 text-sapphire-500" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sapphire-500/10 border border-sapphire-500/20 text-sapphire-700 dark:text-sapphire-300">
+                <CalendarDays className="w-4 h-4 text-sapphire-700 dark:text-sapphire-300" />
                 <span className="text-sm font-medium">Business Calendar</span>
               </div>
               <h3 className="text-2xl font-bold tracking-tight">Business &amp; Board Meetings</h3>
@@ -152,7 +145,7 @@ export default function HomePage() {
             <div className="shrink-0 w-full md:w-auto">
               <Link
                 href="/calendar"
-                className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-sapphire-600 hover:bg-sapphire-500 text-white text-sm font-semibold transition-all shadow-md hover:shadow-lg w-full md:w-auto"
+                className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-sapphire-600 hover:bg-sapphire-700 text-white text-sm font-semibold transition-all shadow-md hover:shadow-lg w-full md:w-auto"
               >
                 View Interactive Calendar
               </Link>
@@ -162,10 +155,10 @@ export default function HomePage() {
       </AnimatedSection>
 
       {/* Gallery Section */}
-      <AnimatedSection id="gallery" className="bg-card/20 border-t border-border/50">
+      <AnimatedSection id="gallery" className="bg-card border-t border-border/50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sapphire-500/10 border border-sapphire-500/20 text-sapphire-400 mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sapphire-500/10 border border-sapphire-500/20 text-sapphire-700 dark:text-sapphire-300 mb-2">
               <Sparkles className="w-4 h-4" />
               <span className="text-sm font-medium">Visual Tour</span>
             </div>
@@ -179,7 +172,7 @@ export default function HomePage() {
       </AnimatedSection>
 
       {/* Membership Section */}
-      <AnimatedSection id="membership" className="bg-card/30 border-y border-border/50 py-10 md:py-14">
+      <AnimatedSection id="membership" className="bg-card border-y border-border/50 py-10 md:py-14">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
 
@@ -195,13 +188,13 @@ export default function HomePage() {
               {/* Pricing Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full">
                 {membershipTiers.map((tier) => (
-                  <div key={tier.name} className="flex items-center gap-3.5 bg-card/45 p-3.5 rounded-xl border border-border/60 shadow-sm">
+                  <div key={tier.name} className="flex items-center gap-3.5 bg-card p-3.5 rounded-xl border border-border/60 shadow-sm">
                     <div
                       className={cn(
                         "w-11 h-11 rounded-lg flex items-center justify-center shrink-0",
                         tier.accent === "sapphire"
-                          ? "bg-sapphire-500/15 text-sapphire-500 dark:text-sapphire-400"
-                          : "bg-gold-500/15 text-gold-500 dark:text-gold-400",
+                          ? "bg-sapphire-500/15 text-sapphire-700 dark:text-sapphire-300"
+                          : "bg-gold-500/15 text-gold-700 dark:text-gold-400",
                       )}
                     >
                       <span className="font-bold text-base">{tier.price}</span>
@@ -216,11 +209,11 @@ export default function HomePage() {
 
               {/* Benefits */}
               <div className="w-full space-y-2.5">
-                <h4 className="font-bold text-sm uppercase tracking-wider text-sapphire-500 dark:text-sapphire-400">Membership Benefits</h4>
+                <h4 className="font-bold text-sm uppercase tracking-wider text-sapphire-700 dark:text-sapphire-300">Membership Benefits</h4>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 w-full text-left">
                   {membershipBenefits.map((benefit) => (
-                    <li key={benefit} className="flex items-center gap-2.5 text-foreground/80 bg-card/20 p-2.5 rounded-xl border border-border/40">
-                      <CheckCircle2 className="w-4 h-4 text-sapphire-500 shrink-0" />
+                    <li key={benefit} className="flex items-center gap-2.5 text-foreground/80 bg-card p-2.5 rounded-xl border border-border/40">
+                      <CheckCircle2 className="w-4 h-4 text-sapphire-700 dark:text-sapphire-300 shrink-0" />
                       <span className="text-xs font-medium">{benefit}</span>
                     </li>
                   ))}
@@ -241,7 +234,7 @@ export default function HomePage() {
       </AnimatedSection>
 
       {/* Contact Section */}
-      <AnimatedSection id="contact" className="bg-card/30 border-t border-border/50" direction="none">
+      <AnimatedSection id="contact" className="bg-card border-t border-border/50" direction="none">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-2xl mx-auto mb-12 space-y-4">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Visit Us</h2>
@@ -252,7 +245,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <GlassCard className="p-6 flex flex-col items-center text-center gap-3 border-border/60 shadow-md hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 rounded-full bg-sapphire-500/20 text-sapphire-500 flex items-center justify-center mb-2">
+              <div className="w-12 h-12 rounded-full bg-sapphire-500/20 text-sapphire-700 dark:text-sapphire-300 flex items-center justify-center mb-2">
                 <MapPin className="w-5 h-5" />
               </div>
               <h3 className="font-bold text-lg">Location</h3>
@@ -263,23 +256,23 @@ export default function HomePage() {
             </GlassCard>
 
             <GlassCard className="p-6 flex flex-col items-center text-center gap-3 border-border/60 shadow-md hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 rounded-full bg-sapphire-500/20 text-sapphire-500 flex items-center justify-center mb-2">
+              <div className="w-12 h-12 rounded-full bg-sapphire-500/20 text-sapphire-700 dark:text-sapphire-300 flex items-center justify-center mb-2">
                 <Phone className="w-5 h-5" />
               </div>
               <h3 className="font-bold text-lg">Phone</h3>
               <p className="text-sm text-foreground/70 leading-relaxed">
-                <a href={siteConfig.contact.phoneHref} className="hover:text-sapphire-400 transition-colors">{siteConfig.contact.phone}</a>
+                <a href={siteConfig.contact.phoneHref} className="hover:text-sapphire-700 dark:hover:text-sapphire-300 transition-colors">{siteConfig.contact.phone}</a>
                 <br />Call during business hours
               </p>
             </GlassCard>
 
             <GlassCard className="p-6 flex flex-col items-center text-center gap-3 border-border/60 shadow-md hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 rounded-full bg-sapphire-500/20 text-sapphire-500 flex items-center justify-center mb-2">
+              <div className="w-12 h-12 rounded-full bg-sapphire-500/20 text-sapphire-700 dark:text-sapphire-300 flex items-center justify-center mb-2">
                 <Mail className="w-5 h-5" />
               </div>
               <h3 className="font-bold text-lg">Email</h3>
               <p className="text-sm text-foreground/70 leading-relaxed">
-                <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-sapphire-400 transition-colors break-all">{siteConfig.contact.email}</a>
+                <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-sapphire-700 dark:hover:text-sapphire-300 transition-colors break-all">{siteConfig.contact.email}</a>
                 <br />We reply within 24 hours
               </p>
             </GlassCard>
@@ -301,7 +294,7 @@ export default function HomePage() {
                 href={siteConfig.map.directions}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-sapphire-600 hover:bg-sapphire-500 text-white text-sm font-semibold transition-all shadow-md hover:shadow-lg"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-sapphire-600 hover:bg-sapphire-700 text-white text-sm font-semibold transition-all shadow-md hover:shadow-lg"
               >
                 <Navigation className="w-4 h-4" />
                 Get Directions to {fullAddress}

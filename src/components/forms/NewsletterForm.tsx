@@ -42,12 +42,12 @@ export function NewsletterForm() {
           required
           autoComplete="email"
           placeholder="Enter your email"
-          className="flex-1 px-4 py-2.5 bg-background/70 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-sapphire-500/50 transition-all text-foreground text-sm"
+          className="flex-1 px-4 py-2.5 bg-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-sapphire-500/50 transition-all text-foreground text-sm"
         />
         <button
           type="submit"
           disabled={isSubmitting}
-          className="px-5 py-2.5 rounded-xl bg-sapphire-600 hover:bg-sapphire-500 disabled:bg-sapphire-600/50 text-white font-semibold text-sm transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2 shrink-0"
+          className="px-5 py-2.5 rounded-xl bg-sapphire-600 hover:bg-sapphire-700 disabled:bg-sapphire-600/50 text-white font-semibold text-sm transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2 shrink-0"
         >
           {isSubmitting ? (
             <>

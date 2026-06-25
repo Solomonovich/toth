@@ -35,7 +35,7 @@ export function MembershipForm() {
         </p>
         <button
           onClick={reset}
-          className="mt-6 text-sapphire-400 hover:text-sapphire-300 font-medium transition-colors"
+          className="mt-6 text-sapphire-700 dark:text-sapphire-300 hover:text-sapphire-800 dark:hover:text-sapphire-200 font-medium transition-colors"
         >
           Submit another inquiry
         </button>
@@ -60,7 +60,7 @@ export function MembershipForm() {
               id="firstName" 
               name="firstName"
               autoComplete="given-name"
-              className="w-full px-3 py-2 bg-background/50 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-sapphire-500/50 transition-all text-foreground text-sm"
+              className="w-full px-3 py-2 bg-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-sapphire-500/50 transition-all text-foreground text-sm"
               placeholder="Enter first name"
             />
           </div>
@@ -71,7 +71,7 @@ export function MembershipForm() {
               id="lastName" 
               name="lastName"
               autoComplete="family-name"
-              className="w-full px-3 py-2 bg-background/50 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-sapphire-500/50 transition-all text-foreground text-sm"
+              className="w-full px-3 py-2 bg-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-sapphire-500/50 transition-all text-foreground text-sm"
               placeholder="Enter last name"
             />
           </div>
@@ -85,7 +85,7 @@ export function MembershipForm() {
             id="email" 
             name="email"
             autoComplete="email"
-            className="w-full px-3 py-2 bg-background/50 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-sapphire-500/50 transition-all text-foreground text-sm"
+            className="w-full px-3 py-2 bg-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-sapphire-500/50 transition-all text-foreground text-sm"
             placeholder="you@example.com"
           />
         </div>
@@ -98,7 +98,7 @@ export function MembershipForm() {
             id="phone" 
             name="phone"
             autoComplete="tel"
-            className="w-full px-3 py-2 bg-background/50 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-sapphire-500/50 transition-all text-foreground text-sm"
+            className="w-full px-3 py-2 bg-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-sapphire-500/50 transition-all text-foreground text-sm"
             placeholder="(555) 123-4567"
           />
         </div>
@@ -113,7 +113,7 @@ export function MembershipForm() {
       <button
         disabled={isSubmitting}
         type="submit"
-        className="w-full py-2.5 bg-sapphire-600 hover:bg-sapphire-500 disabled:bg-sapphire-600/50 text-white rounded-xl font-semibold transition-all shadow-[0_0_20px_rgba(37,99,235,0.2)] hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] disabled:shadow-none flex items-center justify-center gap-2 text-sm"
+        className="w-full py-2.5 bg-sapphire-600 hover:bg-sapphire-700 disabled:bg-sapphire-600/50 text-white rounded-xl font-semibold transition-all shadow-md hover:shadow-lg disabled:shadow-none flex items-center justify-center gap-2 text-sm"
       >
         {isSubmitting ? (
           <>
